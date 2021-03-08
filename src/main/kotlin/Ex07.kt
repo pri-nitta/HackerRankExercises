@@ -1,26 +1,30 @@
-//
-//import kotlin.collections.*
-//import kotlin.io.*
-//import kotlin.text.*
-//
-///*
-// * Complete the 'birthdayCakeCandles' function below.
-// *
-// * The function is expected to return an INTEGER.
-// * The function accepts INTEGER_ARRAY candles as parameter.
-// */
-//
-//fun birthdayCakeCandles(candles: Array<Int>): Int {
-//    // Write your code here
-//
-//}
-//
-//fun main(args: Array<String>) {
-//    val candlesCount = readLine()!!.trim().toInt()
-//
-//    val candles = readLine()!!.trimEnd().split(" ").map{ it.toInt() }.toTypedArray()
-//
-//    val result = birthdayCakeCandles(candles)
-//
-//    println(result)
-//}
+import java.util.*
+import kotlin.collections.*
+import kotlin.io.*
+import kotlin.text.*
+
+// Complete the miniMaxSum function below.
+fun miniMaxSum(arr: Array<Int>) {
+    var max: Long = 0
+    var min: Long = arr[0].toLong()
+    var total: Long = 0
+    for (i in 0..arr.size - 1) {
+        val item = arr[i].toLong()
+        total += item
+        if (item <min){
+            min = item
+        }
+        if (item > max){
+            max = item
+        }
+    }
+    print("${total-max} ${total-min}")
+}
+
+fun main(args: Array<String>) {
+    val scan = Scanner(System.`in`)
+
+    val arr = scan.nextLine().split(" ").map{ it.trim().toInt() }.toTypedArray()
+
+    miniMaxSum(arr)
+}
